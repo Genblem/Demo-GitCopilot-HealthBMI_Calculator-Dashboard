@@ -1,52 +1,35 @@
-# BMI Calculator
+# BMI Calculator Dashboard
 
-This is a simple BMI (Body Mass Index) calculator built using HTML, CSS, and JavaScript, styled with Tailwind CSS. The application allows users to input their weight and height, calculates their BMI, and displays the result.
+A modern, responsive BMI Calculator web app with login, animated results, and health summary. Built with HTML, TailwindCSS, and JavaScript.
 
-## Project Structure
+## Features
 
-```
-bmi-calculator
-├── src
-│   ├── index.html       # HTML structure of the BMI calculator
-│   ├── styles.css       # Custom styles for the BMI calculator
-│   └── app.js           # JavaScript logic for calculating BMI
-├── tailwind.config.js   # Configuration file for Tailwind CSS
-├── package.json         # npm configuration file
-└── README.md            # Project documentation
-```
-
-## Getting Started
-
-To get started with the BMI calculator, follow these steps:
-
-1. **Clone the repository:**
-   ```bash
-   git clone <repository-url>
-   cd bmi-calculator
-   ```
-
-2. **Install dependencies:**
-   Make sure you have Node.js installed. Then run:
-   ```bash
-   npm install
-   ```
-
-3. **Build the project:**
-   To build the project with Tailwind CSS, run:
-   ```bash
-   npm run build
-   ```
-
-4. **Open the application:**
-   Open `src/index.html` in your web browser to use the BMI calculator.
+- Beautiful gradient background with Unsplash image
+- Responsive design for desktop and mobile
+- Login system (demo: username `demo`, password `dome`)
+- BMI calculation with age, gender, weight, height
+- Animated, interactive summary result boxes (Calories/day, Water/day, BMR, Body Fat %, Protein/day)
+- Hover effects and modern icons
+- BMI classification table
+- SweetAlert2 for notifications
 
 ## Usage
 
-1. Enter your weight in kilograms.
-2. Enter your height in meters.
-3. Click the "Calculate BMI" button.
-4. Your BMI will be displayed below the input fields.
+1. Clone this repo
+2. Open `index.html` in your browser (no build step required)
+3. Login with username `demo` and password `dome`
+4. Enter your details and calculate your BMI
 
-## License
+## Screenshots
 
-This project is open-source and available under the [MIT License](LICENSE).
+![screenshot](https://user-images.githubusercontent.com/your-screenshot-link.png)
+
+## Credits
+
+- [TailwindCSS](https://tailwindcss.com/)
+- [SweetAlert2](https://sweetalert2.github.io/)
+- [Unsplash](https://unsplash.com/) for background image
+
+---
+
+> Developed by Genblem | Demo-GitCopilot-HealthBMI_Calculator-Dashboard
