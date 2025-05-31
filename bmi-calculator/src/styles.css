@@ -1,0 +1,26 @@
+/* BMI Extra Result Box Styles */
+.bmi-extra-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.bmi-extra-label {
+  font-weight: 500;
+  color: #374151; /* gray-700 */
+}
+.bmi-extra-value {
+  font-weight: 600;
+}
+.bmi-extra-blue {
+  color: #2563eb; /* blue-600 */
+}
+.bmi-extra-green {
+  color: #16a34a; /* green-600 */
+}
+.bmi-extra-yellow {
+  color: #ca8a04; /* yellow-600 */
+}
+.bmi-extra-purple {
+  color: #7c3aed; /* purple-600 */
+}

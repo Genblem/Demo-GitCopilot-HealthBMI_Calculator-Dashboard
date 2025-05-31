@@ -1,0 +1,19 @@
+{
+  "name": "bmi-calculator",
+  "version": "1.0.0",
+  "description": "A simple BMI calculator using HTML, CSS, and JavaScript with Tailwind CSS.",
+  "main": "src/app.js",
+  "scripts": {
+    "build": "tailwindcss build src/styles.css -o dist/styles.css",
+    "watch": "tailwindcss build src/styles.css -o dist/styles.css --watch",
+    "start": "live-server"
+  },
+  "dependencies": {
+    "tailwindcss": "^2.2.19"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  },
+  "author": "",
+  "license": "ISC"
+}

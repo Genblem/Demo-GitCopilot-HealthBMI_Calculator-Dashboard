@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI Calculator Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-100 to-purple-200 min-h-screen flex flex-col">
+    <!-- Navigation Bar -->
+    <nav class="flex items-center justify-between px-6 py-4 bg-white shadow-md fixed w-full top-0 left-0 z-20 backdrop-blur-md">
+        <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m4 0h-1v4h-1m-4 0h-1v-4h-1m4 0h-1v4h-1" /></svg>
+            <span class="text-2xl font-bold text-blue-700 tracking-tight select-none">BMI Calculator</span>
+        </div>
+        <div class="flex items-center gap-4">
+            <button id="logout-btn" class="hidden transition hover:scale-105 hover:shadow-lg bg-gradient-to-r from-red-400 to-pink-500 text-white font-semibold px-4 py-2 rounded-lg shadow-md focus:outline-none" title="Logout">
+                <svg xmlns="http://www.w3.org/2000/svg" class="inline h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1m0-10V5" /></svg>
+                Logout
+            </button>
+        </div>
+    </nav>
+    <div class="container mx-auto py-8 pt-28 fade-in">
+        <!-- Login Section -->
+        <div id="login-section" class="flex justify-center fade-in">
+            <div class="w-full max-w-md bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-center text-purple-700 mb-6">Login</h2>
+                <div class="mb-4">
+                    <label for="username" class="block text-gray-700 font-medium mb-1">Username</label>
+                    <input type="text" id="username" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-purple-400" placeholder="Enter username">
+                </div>
+                <div class="mb-6">
+                    <label for="password" class="block text-gray-700 font-medium mb-1">Password</label>
+                    <input type="password" id="password" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-purple-400" placeholder="Enter password">
+                </div>
+                <button id="login-btn" class="w-full py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg shadow-md transition hover:scale-105 hover:shadow-lg hover:from-purple-600 hover:to-blue-600 duration-200">Login</button>
+            </div>
+        </div>
+        <!-- BMI Section -->
+        <div id="bmi-section" class="hidden mt-8 flex flex-col items-center fade-in">
+            <div class="flex flex-col md:flex-row gap-8 w-full max-w-4xl">
+                <!-- Input Box -->
+                <div class="flex-1 bg-white rounded-xl shadow-lg p-8">
+                    <h2 class="text-2xl font-bold text-center text-blue-700 mb-6 flex items-center justify-center gap-2">
+                        <svg xmlns='http://www.w3.org/2000/svg' class='h-7 w-7 text-blue-500' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M13 16h-1v-4h-1m4 0h-1v4h-1m-4 0h-1v-4h-1m4 0h-1v4h-1' /></svg>
+                        BMI Calculator
+                    </h2>
+                    <div class="mb-4">
+                        <label for="weight" class="block text-gray-700 font-medium mb-1">Weight (kg)</label>
+                        <input type="number" id="weight" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter your weight">
+                    </div>
+                    <div class="mb-4">
+                        <label for="height" class="block text-gray-700 font-medium mb-1">Height (cm)</label>
+                        <input type="number" id="height" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter your height">
+                    </div>
+                    <div class="mb-4">
+                        <label for="age" class="block text-gray-700 font-medium mb-1">Age (years)</label>
+                        <input type="number" id="age" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter your age">
+                    </div>
+                    <div class="mb-6">
+                        <label for="gender" class="block text-gray-700 font-medium mb-1">Gender</label>
+                        <select id="gender" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <button id="calculate-btn" class="w-full py-2 bg-gradient-to-r from-green-400 to-blue-500 text-white font-semibold rounded-lg shadow-md transition hover:scale-105 hover:shadow-lg hover:from-green-500 hover:to-blue-600 duration-200 text-lg mt-2 flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
+                        Calculate BMI
+                    </button>
+                </div>
+                <!-- Result Box -->
+                <div class="flex-1 bg-white rounded-xl shadow-lg p-8 flex flex-col items-center justify-center">
+                    <h3 class="text-xl font-bold text-center mb-4 text-gray-700 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m4 0h-1v4h-1m-4 0h-1v-4h-1m4 0h-1v4h-1" /></svg>
+                        Result
+                    </h3>
+                    <div id="result" class="text-3xl font-bold mb-2"></div>
+                    <div id="bmi-status" class="text-lg font-semibold mb-2"></div>
+                    <div id="bmi-warning" class="text-base font-medium"></div>
+                    <div id="extra-result-box" class="w-full mt-6 hidden">
+                        <div id="extra-result" class="w-full bg-gradient-to-r from-blue-50 to-purple-100 rounded-xl p-6 shadow flex flex-col gap-2 text-gray-700"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- BMI Table -->
+            <div class="w-full max-w-2xl mt-10 bg-white rounded-xl shadow-lg p-6 fade-in">
+                <h4 class="text-lg font-bold text-gray-700 mb-4 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                    BMI Classification Table
+                </h4>
+                <table class="w-full text-center border-collapse">
+                    <thead>
+                        <tr>
+                            <th class="border-b-2 py-2 text-gray-700">BMI (kg/m²)</th>
+                            <th class="border-b-2 py-2 text-gray-700">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-blue-50">
+                            <td class="py-2">Less than 18.5</td>
+                            <td class="py-2 text-blue-600 font-semibold">Underweight</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2">18.5 - 24.9</td>
+                            <td class="py-2 text-green-600 font-semibold">Normal weight</td>
+                        </tr>
+                        <tr class="bg-yellow-50">
+                            <td class="py-2">25 - 29.9</td>
+                            <td class="py-2 text-yellow-600 font-semibold">Overweight</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2">30 or more</td>
+                            <td class="py-2 text-red-600 font-semibold">Obese</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+    <script>
+    // Logout button
+    const logoutBtn = document.getElementById('logout-btn');
+    function showLogout(show) {
+        if (logoutBtn) {
+            if (show) logoutBtn.classList.remove('hidden');
+            else logoutBtn.classList.add('hidden');
+        }
+    }
+    // Show logout only when BMI section is visible
+    function checkSection() {
+        const bmiSection = document.getElementById('bmi-section');
+        if (bmiSection && !bmiSection.classList.contains('hidden')) {
+            showLogout(true);
+        } else {
+            showLogout(false);
+        }
+    }
+    // Listen for section changes
+    const observer = new MutationObserver(checkSection);
+    observer.observe(document.getElementById('bmi-section'), { attributes: true });
+    // Logout click
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+            document.getElementById('bmi-section').classList.add('hidden');
+            document.getElementById('login-section').classList.remove('hidden');
+        });
+    }
+    // Fade-in animation
+    document.querySelectorAll('.fade-in').forEach(el => {
+        el.classList.add('opacity-0');
+        setTimeout(() => {
+            el.classList.add('transition-opacity', 'duration-700');
+            el.classList.remove('opacity-0');
+            el.classList.add('opacity-100');
+        }, 100);
+    });
+    </script>
+</body>
+</html>
