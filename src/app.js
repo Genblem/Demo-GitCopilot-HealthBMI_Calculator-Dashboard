@@ -44,25 +44,46 @@ function setBoxResult({tdee, water, bmr, bodyFat, protein}) {
     const extraBox = document.getElementById('extra-result-box');
     if (extraResult && extraBox) {
         extraResult.innerHTML = `
-            <div class="bmi-extra-row">
-                <div class="bmi-extra-label">Calories/day (TDEE):</div>
-                <div class="bmi-extra-value bmi-extra-blue">${tdee} kcal</div>
-            </div>
-            <div class="bmi-extra-row">
-                <div class="bmi-extra-label">Water/day:</div>
-                <div class="bmi-extra-value bmi-extra-blue">${water} L</div>
-            </div>
-            <div class="bmi-extra-row">
-                <div class="bmi-extra-label">BMR:</div>
-                <div class="bmi-extra-value bmi-extra-green">${bmr} kcal</div>
-            </div>
-            <div class="bmi-extra-row">
-                <div class="bmi-extra-label">Body Fat %:</div>
-                <div class="bmi-extra-value bmi-extra-yellow">${bodyFat}%</div>
-            </div>
-            <div class="bmi-extra-row">
-                <div class="bmi-extra-label">Protein/day:</div>
-                <div class="bmi-extra-value bmi-extra-purple">${protein} g</div>
+            <div class="flex flex-col gap-4 w-full">
+                <div class="flex gap-4 flex-wrap">
+                    <div class="flex-1 min-w-[180px] bg-blue-50 rounded-xl p-4 shadow flex items-center gap-3">
+                        <svg class='h-7 w-7 text-blue-400' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 8c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zm0 0V4m0 7v7' /></svg>
+                        <div>
+                            <div class="font-semibold text-blue-700">Calories/day (TDEE)</div>
+                            <div class="text-lg font-bold">${tdee} kcal</div>
+                        </div>
+                    </div>
+                    <div class="flex-1 min-w-[180px] bg-cyan-50 rounded-xl p-4 shadow flex items-center gap-3">
+                        <svg class='h-7 w-7 text-cyan-400' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 20c4.418 0 8-1.79 8-4V7c0-2.21-3.582-4-8-4S4 4.79 4 7v9c0 2.21 3.582 4 8 4z' /></svg>
+                        <div>
+                            <div class="font-semibold text-cyan-700">Water/day</div>
+                            <div class="text-lg font-bold">${water} L</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex gap-4 flex-wrap">
+                    <div class="flex-1 min-w-[180px] bg-green-50 rounded-xl p-4 shadow flex items-center gap-3">
+                        <svg class='h-7 w-7 text-green-400' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 4v16m8-8H4' /></svg>
+                        <div>
+                            <div class="font-semibold text-green-700">BMR</div>
+                            <div class="text-lg font-bold">${bmr} kcal</div>
+                        </div>
+                    </div>
+                    <div class="flex-1 min-w-[180px] bg-yellow-50 rounded-xl p-4 shadow flex items-center gap-3">
+                        <svg class='h-7 w-7 text-yellow-400' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M20 12H4' /></svg>
+                        <div>
+                            <div class="font-semibold text-yellow-700">Body Fat %</div>
+                            <div class="text-lg font-bold">${bodyFat}%</div>
+                        </div>
+                    </div>
+                    <div class="flex-1 min-w-[180px] bg-purple-50 rounded-xl p-4 shadow flex items-center gap-3">
+                        <svg class='h-7 w-7 text-purple-400' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 13l4 4L19 7' /></svg>
+                        <div>
+                            <div class="font-semibold text-purple-700">Protein/day</div>
+                            <div class="text-lg font-bold">${protein} g</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         `;
         extraBox.classList.remove('hidden');
